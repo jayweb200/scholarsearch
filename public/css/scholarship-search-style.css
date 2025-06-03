@@ -1,0 +1,123 @@
+.scholarship-search-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.scholarship-search-form .search-form-row {
+    margin-bottom: 10px;
+}
+
+.scholarship-search-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.scholarship-search-form input[type="text"],
+.scholarship-search-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.scholarship-search-form input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #0073aa; /* WordPress blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+.scholarship-search-form input[type="submit"]:hover {
+    background-color: #005177;
+}
+
+.scholarship-search-results {
+    margin-top: 20px;
+}
+
+.scholarship-search-results h3 {
+    margin-bottom: 15px;
+}
+
+.scholarship-search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.scholarship-search-results li {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.scholarship-search-results li:last-child {
+    border-bottom: none;
+}
+
+.scholarship-search-results h4 a {
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.scholarship-search-results h4 a:hover {
+    text-decoration: underline;
+}
+
+.scholarship-excerpt {
+    margin-top: 5px;
+    color: #555;
+}
+
+.scholarship-search-no-results,
+.scholarship-search-error {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #f00; /* Red border for errors */
+    background-color: #ffe0e0; /* Light red background */
+    color: #a00; /* Dark red text */
+    border-radius: 3px;
+}
+
+.scholarship-pagination {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.scholarship-pagination .page-numbers {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #0073aa;
+}
+
+.scholarship-pagination .page-numbers:hover,
+.scholarship-pagination .page-numbers.current {
+    background-color: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.scholarship-pagination .page-numbers.dots {
+    border: none;
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Required field indicator */
+.scholarship-search-form .required {
+    color: red;
+    margin-left: 3px;
+}
