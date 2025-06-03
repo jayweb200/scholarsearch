@@ -145,6 +145,16 @@ function scholarship_search_activate_plugin() {
     // --- Flush Rewrite Rules ---
     // This is crucial to ensure that the new CPT and taxonomy permalinks work correctly immediately after activation.
     flush_rewrite_rules();
+
+    // --- Set Default Cron Schedule on Activation ---
+    // This function is defined in includes/cron.php, ensure it's loaded if called directly here.
+    // For safety, check if function exists or ensure cron.php is included before this activation hook runs,
+    // or include it temporarily if necessary. However, typical plugin structure includes all files first.
+    if ( function_exists( 'scholarship_search_activation_default_cron_schedule' ) ) {
+        scholarship_search_activation_default_cron_schedule();
+    } elseif ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        error_log('Scholarship Search: scholarship_search_activation_default_cron_schedule() not found during activation.');
+    }
 }
 
 /**
@@ -152,9 +162,10 @@ function scholarship_search_activate_plugin() {
  *
  * This function is triggered when the plugin is deactivated.
  * It unregisters the 'scholarship' custom post type and the 'scholarship_category' custom taxonomy.
- * It also flushes rewrite rules. Note that this does not delete any data (posts, terms, or metadata).
+ * It also flushes rewrite rules and clears any scheduled cron jobs for the plugin.
+ * Note that this does not delete any data (posts, terms, or metadata).
  *
- * @since 1.0.0
+ * @since 1.0.0 (modified 1.1.0)
  */
 function scholarship_search_deactivate_plugin() {
     // Unregister the post type.
@@ -167,5 +178,13 @@ function scholarship_search_deactivate_plugin() {
 
     // Flush rewrite rules to remove the CPT and taxonomy rules.
     flush_rewrite_rules();
+
+    // --- Clear Scheduled Cron Events ---
+    // This function is defined in includes/cron.php.
+    if ( function_exists( 'scholarship_search_clear_scheduled_events' ) ) {
+        scholarship_search_clear_scheduled_events();
+    } elseif ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        error_log('Scholarship Search: scholarship_search_clear_scheduled_events() not found during deactivation.');
+    }
 }
 ?>
