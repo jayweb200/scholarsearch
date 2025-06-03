@@ -56,6 +56,15 @@ require_once SCHOLARSHIP_SEARCH_PLUGIN_DIR . 'includes/enqueue-scripts.php';
 // Include plugin activation/deactivation hooks.
 require_once SCHOLARSHIP_SEARCH_PLUGIN_DIR . 'includes/plugin-activation.php';
 
+// Include scraping engine.
+require_once SCHOLARSHIP_SEARCH_PLUGIN_DIR . 'includes/scraping/scraper-engine.php';
+
+// Include scraping importer.
+require_once SCHOLARSHIP_SEARCH_PLUGIN_DIR . 'includes/scraping/importer.php';
+
+// Include cron job functionalities.
+require_once SCHOLARSHIP_SEARCH_PLUGIN_DIR . 'includes/cron.php';
+
 // Register WordPress hooks.
 register_activation_hook( __FILE__, 'scholarship_search_activate_plugin' );
 register_deactivation_hook( __FILE__, 'scholarship_search_deactivate_plugin' );
